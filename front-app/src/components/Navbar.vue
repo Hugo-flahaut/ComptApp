@@ -5,11 +5,11 @@
                 <router-link to="/home"><img src="../assets/icofont/home.svg" alt=""></router-link>
             </h4>
             <h4 class="nav__link">
-                <router-link to="/credit"><img src="../assets/icofont/plus-circle.svg" alt=""></router-link>
+                <router-link to="/invoices"><img src="../assets/icofont/plus-circle.svg" alt=""></router-link>
             </h4>
-            <h4 class="nav__link">
+            <!-- <h4 class="nav__link">
                 <router-link to="/debit"><img src="../assets/icofont/minus-circle.svg" alt=""></router-link>
-            </h4>
+            </h4> -->
             <h4 class="nav__link">
                 <router-link to="/chart"><img src="../assets/icofont/chart-line-alt.svg" alt=""></router-link>
             </h4>
@@ -45,12 +45,11 @@
         border: #fff 1px solid;
         border-radius: 50% ;
         cursor: pointer;
-
     }
 
     img{
-        width: 64px;
-        height: 64px;
+        width: 32px;
+        height: 32px;
         color: #646464;
     }
 </style>

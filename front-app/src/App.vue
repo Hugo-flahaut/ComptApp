@@ -6,7 +6,9 @@
           <Navbar />
         </div>
         <div class="col-9">
-
+          <h2>Bienvenue</h2>
+          <h3><small>{{ currentRoute }}</small></h3>
+          
         </div>
       </div>
     </div>
@@ -19,7 +21,7 @@ import Navbar from './components/Navbar.vue'
 export default {
   name: 'App',
   components: {
-    Navbar
+    Navbar,
   }
 }
 </script>
@@ -30,7 +32,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background: #ececec;
   margin-top: 60px;
 }
 </style>
