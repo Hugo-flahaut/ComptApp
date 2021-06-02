@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Balance from "../components/Balance.vue"
 
 
 Vue.use(VueRouter);
@@ -11,14 +12,14 @@ const routes = [{
         component: Home,
     },
     {
-        path: "/invoices",
-        name: "Invoices",
-        component: Invoices,
-    },
+        path: "/home",
+        name: "landing",
+        component: Home, Balance,
+    }
     // {
-    //     path: "/radio",
-    //     name: "radio",
-    //     component: Radio,
+    //     path: "/invoices",
+    //     name: "invoices",
+    //     component: Balance,
     // },
 
 ];
@@ -26,7 +27,6 @@ const routes = [{
 const router = new VueRouter({
     mode: process.env.IS_ELECTRON ? "hash" : "history",
     base: process.env.BASE_URL,
-    data:{ currentRoute: window.location.pathname },
     routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {

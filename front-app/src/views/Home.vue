@@ -1,41 +1,46 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <div class="row">
-        <h1>Bienvenue sur votre application</h1>
-        <div class="col-3">
-          <Navbar />
-        </div>
-        <div class="col-9">
-            <h2>Solde</h2>
-            <h2>Débit</h2>
-            <h3>Crédit</h3>
-        </div>
-      </div>
-    </div>
-  </div>
+  <section class="home">
+    <h1>Bienvenue sur Compt'App</h1>
+    <h4>Bilan</h4>
+  
+    <Balance />
+
+  </section>
 </template>
 
 <script>
-    import Navbar from './components/Navbar.vue'
+  import { mapActions, mapState } from "vuex";
+  import Balance from "../components/Balance";
 
-    export default {
-    name: 'Home',
+  export default {
+    data() {
+      return {
+        invoices: "",
+      };
+    },
     components: {
-        Navbar
-    }
-    }
+      Balance,
+    },
+    computed: {
+      ...mapState([""]),
+    },
+    mounted() {
+      this.getInvoices();
+    },
+    methods: {
+      ...mapActions(["getInvoices"]),
+      async getInvoices() {
+        let { data } = await this.getInvoices();
+        this.invoices = data.invoices;
+      },
+    },
+  };
 </script>
 
 <style>
-
-    #app {
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        background: #ececec;
-        margin-top: 60px;
-    }
-
+  .invoices__div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 </style>

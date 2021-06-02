@@ -1,38 +1,46 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <div class="row">
-        <div class="col-3">
-          <Navbar />
-        </div>
-        <div class="col-9">
-          <h2>Bienvenue</h2>
-          <h3><small>{{ currentRoute }}</small></h3>
-          
-        </div>
-      </div>
+    <div id="app">
+        <app-header />
+        <router-view />
     </div>
-  </div>
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue'
-
-export default {
-  name: 'App',
-  components: {
-    Navbar,
-  }
-}
+    import appHeader from "@/components/Header.vue";
+    export default {
+        name: "layout",
+        components: {
+            appHeader,
+        },
+    };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  background: #ececec;
-  margin-top: 60px;
-}
+    @import url("https://fonts.googleapis.com/css2?family=Abel&family=Staatliches&display=swap");
+    html,
+    #app {
+        min-height: 100vh;
+    }
+    #app {
+        font-family: "Abel", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        background-color: #fff;
+    }
+    #app h1 {
+        font-family: "Staatliches", cursive;
+    }
+    a {
+        font-weight: bold;
+        color: #2c3e50;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    a.router-link-exact-active {
+        color: #42b983;
+    }
 </style>
