@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Invoices from "../views/Invoices.vue"
 import Balance from "../components/Balance.vue"
 
 
@@ -15,12 +16,13 @@ const routes = [{
         path: "/home",
         name: "landing",
         component: Home, Balance,
-    }
-    // {
-    //     path: "/invoices",
-    //     name: "invoices",
-    //     component: Balance,
-    // },
+    },
+    {
+        path: "/invoices",
+        name: "invoices",
+        component: Invoices
+       
+    },
 
 ];
 

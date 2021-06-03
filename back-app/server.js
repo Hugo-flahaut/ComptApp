@@ -1,12 +1,15 @@
 // Create express app
 var express = require("express")
 var app = express()
+const cors = require('cors');
 var db = require("./database")
 
 // Post request parameters
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors())
 
 // Server port
 var HTTP_PORT = 8000 

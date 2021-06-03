@@ -1,39 +1,63 @@
 <template>
-  <section class="home">
+  <section class="invoices">
     <h1>Bienvenue sur Compt'App</h1>
-    <h4> Vos factures </h4>
+    <h4>Vos factures</h4>
   
-    <Balance />
-
+    <div class="invoices__div" v-if="invoices">
+        <div class="card m-2 p-2" v-for="invoices in invoices.data" :key="invoices.id">
+            <p>Facture n° : {{ invoices.number }}</p>
+            <p>Nom : {{ invoices.name }}</p>
+            <p>Somme : {{ invoices.amount }} €</p>
+            <p>Type : {{ invoices.type }}</p>
+            <p>Date : {{ invoices.date }}</p>
+            <p>Créée le : {{ invoices.createdAt }}</p>
+        </div>
+    </div>
+    
   </section>
-</template>
+</template> 
 
 <script>
-  import { mapActions, mapState } from "vuex";
-  import Balance from "../components/Balance";
-
+    // import { mapActions, mapState } from "vuex";
+    const axios = require('axios')
   export default {
+    // name: invoices,
     data() {
       return {
-        invoices: "",
+        // listinvoices: "",
+        invoices: [],
       };
-    },
-    components: {
-      Balance,
-    },
-    computed: {
-      ...mapState([""]),
-    },
-    mounted() {
-      this.getInvoices();
-    },
+    },   
     methods: {
-      ...mapActions(["getInvoices"]),
-      async getInvoices() {
-        let { data } = await this.getInvoices();
-        this.invoices = data.invoices;
-      },
-    },
+
+        // ...mapActions(["getInvoices"]),
+        //     async getInvoices() {
+        //     await this.getInvoices();
+              
+        // },
+        async fetchInvoices (){
+            axios 
+                .get('http://localhost:8000/api/invoices/')
+                .then(response => {
+                    this.invoices = response.data                    
+                    // context.commit('invoices', {
+                    //     // number: data.number
+                    // })
+                })
+                .catch(error => {
+                    if (error) throw new Error(error)
+                })
+            }
+        },
+
+//     computed: {
+//       ...mapState(["invoices"]),
+//     },
+    mounted() {
+      this.fetchInvoices();
+    }
+
+//   }
   };
 </script>
 

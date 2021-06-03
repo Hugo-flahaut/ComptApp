@@ -21,6 +21,7 @@
     #app {
         min-height: 100vh;
     }
+    
     #app {
         font-family: "Abel", sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -29,9 +30,11 @@
         color: #2c3e50;
         background-color: #fff;
     }
+
     #app h1 {
         font-family: "Staatliches", cursive;
     }
+
     a {
         font-weight: bold;
         color: #2c3e50;
