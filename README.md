@@ -1,4 +1,4 @@
-# La fabrique de facture
+# Compt'App
 
 ## Objectifs
 
