@@ -14,6 +14,9 @@
                 <router-link to="/invoices">Factures</router-link>
             </h4>
             <h4 class="nav__link">
+                <router-link to="/newinvoices">Nouvelle facture</router-link>
+            </h4>
+            <h4 class="nav__link">
                 <router-link to="/categories">Bilan</router-link>
             </h4>
         </nav>

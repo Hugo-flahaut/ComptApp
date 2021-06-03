@@ -9,10 +9,10 @@
       <p>{{ invoices.amount }}</p>
       <p>{{ invoices.createdAt }}</p> -->
         <h3>Crédit</h3>
-        <p>€</p>
+        <p>{{ credit }} €</p>
 
         <h3>Débit</h3>
-        <p>€</p>
+        <p>{{ debit }}€</p>
 
         <h3>Solde</h3>
         <p>€</p>
@@ -22,8 +22,28 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     name: "Balance",
+    data: () => {
+      return {
+        debit: [],
+        credit: []
+      }
+    },
+    methods:{
+      async getBalance(){
+        axios
+          .get('http://localhost:8000/api/balance/')
+          .then(response => {
+            this.credit = response.data.data[0].allcredit,
+            this.debit = response.data.data[1].alldebit
+          })
+      }
+    }, 
+    mounted(){
+      this.getBalance();
+    }
   };
 </script>
 

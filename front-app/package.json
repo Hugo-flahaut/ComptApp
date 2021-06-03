@@ -18,6 +18,8 @@
     "bootstrap": "^5.0.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "electron-updater": "^4.3.9",
+    "update-electron-app": "^2.0.1",
     "vue": "^2.6.13",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"

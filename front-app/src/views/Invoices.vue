@@ -18,31 +18,20 @@
 </template> 
 
 <script>
-    // import { mapActions, mapState } from "vuex";
     const axios = require('axios')
   export default {
-    // name: invoices,
+
     data() {
       return {
-        // listinvoices: "",
         invoices: [],
       };
     },   
     methods: {
-
-        // ...mapActions(["getInvoices"]),
-        //     async getInvoices() {
-        //     await this.getInvoices();
-              
-        // },
         async fetchInvoices (){
             axios 
                 .get('http://localhost:8000/api/invoices/')
                 .then(response => {
                     this.invoices = response.data                    
-                    // context.commit('invoices', {
-                    //     // number: data.number
-                    // })
                 })
                 .catch(error => {
                     if (error) throw new Error(error)
@@ -50,9 +39,6 @@
             }
         },
 
-//     computed: {
-//       ...mapState(["invoices"]),
-//     },
     mounted() {
       this.fetchInvoices();
     }

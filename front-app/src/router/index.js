@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Invoices from "../views/Invoices.vue"
 import Balance from "../components/Balance.vue"
+import NewInvoices from "../views/NewInvoices.vue"
 
 
 Vue.use(VueRouter);
@@ -23,6 +24,11 @@ const routes = [{
         component: Invoices
        
     },
+    {
+        path: "/newinvoices",
+        name: "newinvoices",
+        component: NewInvoices
+    }
 
 ];
 

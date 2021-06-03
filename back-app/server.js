@@ -24,6 +24,35 @@ app.get("/", (req, res, next) => {
 
 // Insert here other API endpoints
 
+// Bilan REQUEST
+app.get("/api/balance", (req, res, next) =>{
+    var debit = "select invoices.amount from invoices where type='débit'"
+    var credit = "select invoices.amount from invoices where type='crédit'"
+
+    db.all(debit, (err, alldebit) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        // res.json({
+        //     "message":"debit",
+        //     "data":alldebit
+        // })
+      
+
+      db.all(credit, (err, allcredit) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "message":"credit, debit",
+            "data": [{allcredit}, {alldebit}]
+        })
+      });
+    });
+});
+
 // GET REQUEST
 app.get("/api/invoices", (req, res, next) => {
     var sql = "select * from invoices"
