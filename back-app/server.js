@@ -34,12 +34,7 @@ app.get("/api/balance", (req, res, next) =>{
           res.status(400).json({"error":err.message});
           return;
         }
-        // res.json({
-        //     "message":"debit",
-        //     "data":alldebit
-        // })
       
-
       db.all(credit, (err, allcredit) => {
         if (err) {
           res.status(400).json({"error":err.message});
@@ -101,6 +96,7 @@ app.post("/api/invoices/", (req, res, next) => {
         res.status(400).json({"error":errors.join(",")});
         return;
     }
+    
     var data = {
         number: req.body.number,
         date: req.body.date,
@@ -108,8 +104,8 @@ app.post("/api/invoices/", (req, res, next) => {
         type: req.body.type,
         amount: req.body.amount,
         createdAt: req.body.createdAt,
-        // password : md5(req.body.password)
     }
+
     var sql ='INSERT INTO invoices (number, date, name, type, amount) VALUES (?,?,?,?,?)'
     var params =[data.number, data.date, data.name, data.type, data.amount]
     db.run(sql, params, function (err, result) {

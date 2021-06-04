@@ -2,12 +2,6 @@
   <section class="balance mx-auto">
     <div class="balance__section mx-auto">
 
-      <!-- <p>{{ invoices.number }}</p>
-      <p>{{ invoices.name }}</p>
-      <p>{{ invoices.date }}</p>
-      <p>{{ invoices.type }}</p>
-      <p>{{ invoices.amount }}</p>
-      <p>{{ invoices.createdAt }}</p> -->
         <h3>Crédit</h3>
         <p>{{ credit }} €</p>
 
